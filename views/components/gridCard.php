@@ -6,7 +6,10 @@
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
                 content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="#" class="btn btn-primary">Read More</a>
+                <p class="badge">Dec 8, 2024</p>
+            </div>
         </div>
     </div>
 </div>

@@ -10,6 +10,8 @@ try {
     // order of arguments route, [controller_class, action], [...middlewares]
     require_once "home.php";
 
+    require_once "auth.php";
+
     require_once "blogs.php";
 
     $router->dispatch();

@@ -3,8 +3,8 @@
         class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate adipisci laboriosam tempora ipsa corporis ex similique libero vero quos autem nulla culpa veritatis dolorem neque ab animi, reiciendis atque dicta est consequuntur?
+        </p>
+        <p class="badge float-end">Dec 8, 2024</p>
     </div>
 </div>
