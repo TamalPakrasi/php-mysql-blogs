@@ -32,26 +32,20 @@ class Router
         if (strpos($this->url, BASE_URL) === 0) $this->url = str_replace(BASE_URL, "", $this->url);
     }
 
+    // To dispatch a route
     public function dispatch(): void
     {
-        foreach ($this->routes as $info) {
-            extract($info);
+        if (!array_key_exists($this->url, $this->routes)) throw new NotFound();
 
-            if ($route !== $this->url) {
-                continue;
-            }
+        $routes = $this->routes[$this->url];
 
-            if ($route === $this->url && $method !== $this->requestMethod) {
-                throw new NotAllowed();
-            }
+        if (!array_key_exists($this->requestMethod, $routes)) throw new NotAllowed();
 
-            Middleware::run($middlewares);
+        extract($routes[$this->requestMethod]);
 
-            (new $controller)->$action(...array_values($this->params));
-            return;
-        }
+        Middleware::run($middlewares);
 
-        throw new NotFound();
+        (new $controller)->$action(...array_values($this->params));
     }
 
     // function to add routes
@@ -59,9 +53,7 @@ class Router
     {
         list($controller, $action) = $handlers;
 
-        $this->routes[] = [
-            "route" => $route,
-            "method" => $method,
+        $this->routes[$route][$method] = [
             "middlewares" => $middlewares,
             "controller" => $controller,
             "action" => $action
