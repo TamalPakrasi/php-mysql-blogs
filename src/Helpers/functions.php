@@ -30,7 +30,7 @@ function get_path(string $file): string
 
 function require_file(string $file): void
 {
-    require_once get_path("views/" . $file);
+    require get_path("views/" . $file);
 }
 
 function sendResponse(int $status, string $message, ...$payload): void

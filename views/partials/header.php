@@ -1,5 +1,5 @@
-<header class="position-sticky top-0 start-0 container bg-black">
-    <nav class="navbar navbar-expand-md navbar-dark bg-black py-3 border-bottom border-light-subtle">
+<header class="position-sticky top-0 start-0 container bg-black z-3">
+    <nav class="navbar navbar-expand-md navbar-dark bg-black py-3 border-bottom border-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php get_href("/"); ?>">Blog App</a>
 
