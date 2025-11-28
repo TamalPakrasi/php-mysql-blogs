@@ -6,11 +6,11 @@
     <h2 class="text-center">Latest Blogs</h2>
 
     <div class="row mt-5 row-gap-5">
-        <?php require_file("components/gridCard"); ?>
-        <?php require_file("components/gridCard"); ?>
-        <?php require_file("components/gridCard"); ?>
-        <?php require_file("components/gridCard"); ?>
-        <?php require_file("components/gridCard"); ?>
+        <?php require require_file("components/gridCard"); ?>
+        <?php require require_file("components/gridCard"); ?>
+        <?php require require_file("components/gridCard"); ?>
+        <?php require require_file("components/gridCard"); ?>
+        <?php require require_file("components/gridCard"); ?>
     </div>
 </section>
 

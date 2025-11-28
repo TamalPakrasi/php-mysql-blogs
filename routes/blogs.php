@@ -2,4 +2,10 @@
 
 use App\Controllers\Blogs as BlogsController;
 
-$router->get("/blogs", [BlogsController::class, "index"]);
+$hasId = isset($params["id"]);
+
+if (!$hasId) {
+    $router->get("/blogs", [BlogsController::class, "index"]);
+} else {
+    $router->get("/blogs", [BlogsController::class, "one"]);
+}

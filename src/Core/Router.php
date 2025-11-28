@@ -32,6 +32,11 @@ class Router
         if (strpos($this->url, BASE_URL) === 0) $this->url = str_replace(BASE_URL, "", $this->url);
     }
 
+    public function get_params(): array
+    {
+        return $this->params;
+    }
+
     // To dispatch a route
     public function dispatch(): void
     {

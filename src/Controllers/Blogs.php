@@ -11,6 +11,14 @@ class Blogs extends Controller
     // @access Private (auth user)
     public function index(): void
     {
-        parent::renderView("blogs/index", ["title" => "All Blogs"]);
+        parent::renderView("blogs/index", ["title" => "All Blogs", "render_nav" => true]);
+    }
+
+    // @desc   GET getting blog by id
+    // @route  GET /blogs?id=<userId>
+    // @access Private (auth user)
+    public function one(string $id): void
+    {
+        parent::renderView("blogs/one", ["title" => "aaaaa", "render_nav" => false, "id" => $id]);
     }
 }

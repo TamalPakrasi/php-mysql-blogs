@@ -28,9 +28,9 @@ function get_path(string $file): string
     return __DIR__ . "/../../" .  $file . ".php";
 }
 
-function require_file(string $file): void
+function require_file(string $file): string
 {
-    require get_path("views/" . $file);
+    return get_path("views/" . $file);
 }
 
 function sendResponse(int $status, string $message, ...$payload): void
