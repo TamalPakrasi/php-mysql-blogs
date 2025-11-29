@@ -12,6 +12,8 @@ try {
 
     require_once "auth.php";
 
+    require_once "profile.php";
+
     require_once "blogs.php";
 
     $router->dispatch();
