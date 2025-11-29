@@ -24,10 +24,10 @@ abstract class Controller
         exit;
     }
 
-    protected function redirect(string $url, string $message)
+    protected function redirect(string $url, string $message) : void
     {
         $_SESSION["message"] = $message;
-        header("Location: $url");
+        header("Location: " . BASE_URL . $url);
         exit;
     }
 }

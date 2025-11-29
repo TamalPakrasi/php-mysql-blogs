@@ -6,7 +6,7 @@
         <button class="btn btn-outline-light ms-2 auth" role="button" data-role="login">Log In</button>
     </div>
 
-    <form action="<?php get_href("/auth/register") ?>" class="row g-3 needs-validation mt-5 register-form" style="max-width: 600px;" novalidate>
+    <form action="<?php get_href("/api/auth/register") ?>" class="row g-3 needs-validation mt-5 register-form" style="max-width: 600px;" novalidate>
         <h4 class="text-center mb-3">Register Account</h4>
 
         <div class="col-md-6"> <label class="form-label">First Name</label> <input type="text" class="form-control" required>
@@ -57,7 +57,7 @@
 
     </form>
 
-    <form action="<?php get_href("/auth/login") ?>" class="row g-3 needs-validation mt-5 login-form d-none" style="max-width: 600px;" novalidate>
+    <form action="<?php get_href("/api/auth/login") ?>" class="row g-3 needs-validation mt-5 login-form d-none" style="max-width: 600px;" novalidate>
         <h4 class="text-center mb-3">Log into your account</h4>
 
         <div class="col-md-6">

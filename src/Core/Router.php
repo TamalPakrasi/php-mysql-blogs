@@ -84,4 +84,11 @@ class Router
     {
         $this->add("DELETE", ...$args);
     }
+
+    static public function redirect(string $url, string $message) : void
+    {
+        $_SESSION["message"] = $message;
+        header("Location: " . BASE_URL . $url);
+        exit;
+    }
 }
