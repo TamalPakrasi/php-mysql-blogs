@@ -12,6 +12,20 @@
         </div>
 
         <div class="col-md-12">
+            <label class="form-label">Categories</label>
+            <div class="d-flex gap-2 flex-wrap">
+                <textarea type="text" class="form-control chain-field" required placeholder="Choose categories from dropdown.."></textarea>
+                <select class="form-select chain-select" required>
+                    <option value="" disabled selected>-- Select Categories --</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+                <div class="invalid-feedback"> Please choose at least one category</div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
             <label class="form-label">Thumbnail (optional)</label>
             <input type="file" class="form-control" accept="image/*">
         </div>

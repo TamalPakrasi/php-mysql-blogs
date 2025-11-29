@@ -30,6 +30,6 @@ class Blogs extends Controller
     public function create(): void
     {
         $csrf_token = CSRF::get();
-        parent::renderView("blogs/create", ["title" => "Create New Blog", "render_partials" => false, "scripts" => ["form", "create"], "csrf_token" => $csrf_token]);
+        parent::renderView("blogs/create", ["title" => "Create New Blog", "render_partials" => false, "scripts" => ["form", "select", "create"], "csrf_token" => $csrf_token]);
     }
 }
