@@ -35,7 +35,7 @@
         <div class="col-md-6 position-relative">
             <label class="form-label">Password</label>
             <input type="password" class="form-control" minlength="8" required>
-            <i class="fa-solid fa-eye position-absolute text-black togglePassword" style="top: 42px; right: 20px; cursor: pointer;"></i>
+            <i class="fa-solid fa-eye position-absolute text-black togglePassword" style="top: 42px; right: 35px; cursor: pointer;"></i>
             <div class="invalid-feedback">
                 Password must be at least 8 characters.
             </div>
@@ -72,7 +72,7 @@
         <div class="col-md-6 position-relative">
             <label class="form-label">Password</label>
             <input type="password" class="form-control">
-            <i class="fa-solid fa-eye position-absolute text-black togglePassword" style="top: 42px; right: 20px; cursor: pointer;"></i>
+            <i class="fa-solid fa-eye position-absolute text-black togglePassword" style="top: 42px; right: 35px; cursor: pointer;"></i>
         </div>
 
         <input type="hidden" name="token" value="<?php echo htmlspecialchars($csrf_token); ?>">

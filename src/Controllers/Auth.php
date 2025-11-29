@@ -14,6 +14,6 @@ class Auth extends Controller
     public function index(): void
     {
         $csrf_token = CSRF::get();
-        parent::renderView("auth/index", ["title" => "Get Started", "render_partials" => false, "scripts" => ["getStarted"], "csrf_token" => $csrf_token]);
+        parent::renderView("auth/index", ["title" => "Get Started", "render_partials" => false, "scripts" => ["form", "getStarted"], "csrf_token" => $csrf_token]);
     }
 }
