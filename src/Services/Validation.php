@@ -23,11 +23,9 @@ class Validation
         }
 
         if (empty($profilePic)) {
-           $errors[] = "Invalid Profile Picture";
+            $errors[] = "Invalid Profile Picture";
         }
 
-        echo $profilePic;
-        exit;
         if (!empty($errors)) {
             throw new ValidationError(implode(", ", $errors));
         }

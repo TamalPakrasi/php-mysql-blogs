@@ -2,9 +2,13 @@
 
 namespace App\Services;
 
-use App\Exceptions\Conflict;
+use App\Models\Users;
+
 use App\Services\Validation;
 use App\Services\Upload;
+use App\Services\Id;
+
+use App\Exceptions\Conflict;
 
 class Auth
 {
@@ -25,12 +29,20 @@ class Auth
         $this->profilePic = $profilePic;
     }
 
-    private function checkEmailExists() {}
+    private function checkEmailExists(): ?array
+    {
+        return (new Users())->findByEmail($this->email);
+    }
 
-    private function create(string $secure_url) {}
+    private function create(string $hashedPass, string $secure_url)
+    {
+        $userId = Id::get();
+        (new Users())->create($userId, $this->firstName, $this->lastName, $this->email, $hashedPass, $secure_url);
+    }
 
     private function login(): void
     {
+        session_regenerate_id();
         $_SESSION["user"] = $this->user;
         $_SESSION["isAuthenticated"] = true;
     }
@@ -41,15 +53,15 @@ class Auth
 
         $user = $this->checkEmailExists();
 
-        if (!$user) {
+        if ($user) {
             throw new Conflict();
         }
 
-        Hash::hash($this->password);
+        $hashedPass = Hash::hash($this->password);
 
         $secure_url = (new Upload())->upload($this->profilePic["tmp_name"], "profilePics");
 
-        $this->user = $this->create($secure_url);
+        $this->user = $this->create($hashedPass, $secure_url);
 
         $this->login();
     }

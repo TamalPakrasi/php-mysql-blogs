@@ -35,6 +35,8 @@ class Auth extends Controller
             ? $_FILES['profilePic']
             : null;
 
-        $res = (new AuthServices($firstName, $lastName, $email, $password, $profilePic))->register();
+        (new AuthServices($firstName, $lastName, $email, $password, $profilePic))->register();
+
+        sendResponse(201, "New user registered and logged in successfully");
     }
 }
