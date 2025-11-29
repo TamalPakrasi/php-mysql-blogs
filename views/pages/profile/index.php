@@ -23,7 +23,7 @@
             </div>
 
             <?php if (isset($page) && $page === "me") : ?>
-                <button class="btn btn-primary px-4">
+                <button type="button" class="btn btn-primary px-4" id="edit"  data-bs-toggle="modal" data-bs-target="#modal">
                     <i class="fa-solid fa-pencil"></i> Edit Profile
                 </button>
             <?php endif; ?>
@@ -36,5 +36,7 @@
 <?php
 if (isset($page) && $page === "me") {
     require_once require_file("components/createButton");
+
+    require_once require_file("components/modal");
 }
 ?>
