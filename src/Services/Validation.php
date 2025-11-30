@@ -30,4 +30,11 @@ class Validation
             throw new ValidationError(implode(", ", $errors));
         }
     }
+
+    static public function login($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new ValidationError("Invalid Email");
+        }
+    }
 }

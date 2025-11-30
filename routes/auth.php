@@ -8,3 +8,5 @@ use App\Middlewares\IsImage;
 $router->get("/get-started", [AuthController::class, "index"], [Guest::class]);
 
 $router->post("/api/auth/register", [AuthController::class, "register"], [Guest::class, IsImage::class]);
+
+$router->post("/api/auth/login", [AuthController::class, "login"], [Guest::class]);

@@ -35,8 +35,24 @@ class Auth extends Controller
             ? $_FILES['profilePic']
             : null;
 
-        (new AuthServices(trim($firstName), trim($lastName), trim($email), trim($password), $profilePic))->register();
+        (new AuthServices(trim($email), trim($password), trim($firstName), trim($lastName),  $profilePic))->register();
 
         sendResponse(201, "New user registered and logged in successfully");
+    }
+
+    // @desc   POST register new user
+    // @route  POST /api/auth/login
+    // @content-type JSON
+    // @access Private (guest only)
+    public function login(): void
+    {
+        [
+            "email" => $email,
+            "password" => $password
+        ] = $_POST;
+
+        (new AuthServices(trim($email), trim($password)))->login();
+
+        sendResponse(200, "User logged in successfully");
     }
 }

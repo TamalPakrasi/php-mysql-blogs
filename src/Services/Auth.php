@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\BadRequest;
 use App\Models\Users;
 
 use App\Services\Validation;
@@ -20,7 +21,7 @@ class Auth
 
     private $user = null;
 
-    public function __construct(?string $firstName = null, ?string $lastName = null, string $email, string $password, ?array $profilePic)
+    public function __construct(string $email, string $password, ?string $firstName = null, ?string $lastName = null, ?array $profilePic = null)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -40,8 +41,22 @@ class Auth
         (new Users())->create($userId, $this->firstName, $this->lastName, $this->email, $hashedPass, $secure_url);
     }
 
-    private function login(): void
+    public function login(): void
     {
+        if (empty($this->user)) {
+            Validation::login($this->email);
+
+            $this->user = $this->checkEmailExists();
+
+            if (empty($this->user)) {
+                throw new BadRequest("Email or Password is invalid");
+            }
+
+            Hash::verify($this->user["password"], $this->password);
+        }
+
+        unset($this->user["password"]);
+
         session_regenerate_id();
         $_SESSION["user"] = $this->user;
         $_SESSION["isAuthenticated"] = true;

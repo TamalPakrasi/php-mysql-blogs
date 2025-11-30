@@ -8,7 +8,7 @@ class Users extends Model
 {
   public function findByEmail(string $email): ?array
   {
-    $this->sql = "SELECT `id`, `userId`, `first_name`, `last_name`, `email`, `profile_pic_url`, `joined_at` FROM `users` WHERE `email` = ?";
+    $this->sql = "SELECT `id`, `userId`, `first_name`, `last_name`, `email`, `password`, `profile_pic_url`, `joined_at` FROM `users` WHERE `email` = ?";
 
     parent::prepare();
 
