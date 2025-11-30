@@ -18,7 +18,7 @@ class Validation
             $errors[] = "Invalid Email";
         }
 
-        if (empty($password) && (strlen($password) < 8)) {
+        if (empty($password) || (strlen($password) < 8)) {
             $errors[] = "Invalid Password";
         }
 

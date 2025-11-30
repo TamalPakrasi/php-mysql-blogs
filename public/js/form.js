@@ -7,10 +7,11 @@
   forms.forEach((form) => {
     form.addEventListener(
       "submit",
-      (event) => {
+      (e) => {
         if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
         }
 
         form.classList.add("was-validated");
