@@ -9,10 +9,10 @@ class Profile extends Controller
 {
     // @desc   GET getting My Profile Page
     // @route  GET /profile/me
-    // @access Private (auth user)
+    // @access Private (auth user / me)
     public function index(): void
     {
-        parent::renderView("profile/index", ["title" => "My Profile", "render_partials" => false, "page" => "me", "scripts" => ["form", "edit"], "csrf_token" => CSRF::get()]);
+        parent::renderView("profile/index", ["title" => "My Profile", "render_partials" => false, "page" => "me", "scripts" => ["form", "edit", "logout"], "csrf_token" => CSRF::get()]);
     }
 
     // @desc   GET getting profile page by id

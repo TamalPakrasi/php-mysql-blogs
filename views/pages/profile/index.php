@@ -23,9 +23,17 @@
             </div>
 
             <?php if (isset($page) && $page === "me") : ?>
-                <button type="button" class="btn btn-primary px-4" id="edit"  data-bs-toggle="modal" data-bs-target="#modal">
+                <button type="button" class="btn btn-primary px-4" id="edit" data-bs-toggle="modal" data-bs-target="#modal">
                     <i class="fa-solid fa-pencil"></i> Edit Profile
                 </button>
+
+
+                <form id="logout" class="mt-3">
+                    <input type="hidden" name="token" value="<?php echo htmlspecialchars($csrf_token); ?>">
+                    <button type="submit" class="btn btn-primary px-4 w-100" id="logout-btn">
+                        Log out
+                    </button>
+                </form>
             <?php endif; ?>
         </div>
     </div>
