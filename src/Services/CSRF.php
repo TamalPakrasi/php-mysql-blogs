@@ -22,7 +22,5 @@ class CSRF
         if (!hash_equals($_SESSION["csrf_token"], $token)) {
             throw new Unauthorized("Token invalid");
         }
-
-        unset($_SESSION["csrf_token"]);
     }
 }

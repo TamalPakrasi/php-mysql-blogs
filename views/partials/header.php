@@ -5,7 +5,7 @@
 
             <?php if (!isset($render_nav) || $render_nav === true) { ?>
                 <div>
-                    <?php if (isset($isAuthenticated) && $isAuthenticated === true) { ?>
+                    <?php if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"] === true) { ?>
                         <a
                             href="<?php get_href("/profile/me"); ?>"
                             class="d-inline-block text-decoration-none me-1 d-md-none">
@@ -39,7 +39,7 @@
                     </ul>
                 </div>
 
-                <?php if (isset($isAuthenticated) && $isAuthenticated === true) { ?>
+                <?php if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"] === true) { ?>
                     <a
                         href="<?php get_href("/profile/me"); ?>"
                         class="d-none d-md-inline text-decoration-none ms-1">

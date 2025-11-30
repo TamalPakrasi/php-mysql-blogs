@@ -2,6 +2,8 @@
 
 use App\Core\Router;
 
+use App\Controllers\Message;
+
 try {
     $router = new Router();
 

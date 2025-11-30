@@ -46,12 +46,16 @@ $(".register-form").submit(function (e) {
     },
     error: function (xhr) {
       const err = `<section id="alert-sec" class="position-fixed w-100" style="top: 20px;">
-        <div class="alert alert-danger mx-auto" style="width: fit-content;" role="alert">
+        <div class="alert alert-danger mx-auto alert-dismissible fade show" style="width: fit-content;" role="alert">
             ${xhr.responseJSON.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </section>`;
 
+      $("#alert-sec")?.remove();
       $("#root").append(err);
+
+      window.alertSection();
 
       $(".submit-register").html("Register").removeAttr("disabled");
     },
@@ -79,12 +83,16 @@ $(".login-form").submit(function (e) {
     },
     error: function (xhr) {
       const err = `<section id="alert-sec" class="position-fixed w-100" style="top: 20px;">
-        <div class="alert alert-danger mx-auto" style="width: fit-content;" role="alert">
+        <div class="alert alert-danger mx-auto alert-dismissible fade show" style="width: fit-content;" role="alert">
             ${xhr.responseJSON.message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </section>`;
 
+      $("#alert-sec")?.remove();
       $("#root").append(err);
+
+      window.alertSection();
 
       $(".submit-login").html("Login").removeAttr("disabled");
     },

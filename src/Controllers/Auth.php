@@ -68,8 +68,6 @@ class Auth extends Controller
         session_unset();
         session_destroy();
 
-        setcookie("PHPSESSID", "", time() - 3600, BASE_URL . "/");
-
         session_start();
 
         $_SESSION["message"] = "User logged out successfully";

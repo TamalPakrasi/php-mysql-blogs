@@ -57,7 +57,7 @@ class Auth
 
         unset($this->user["password"]);
 
-        session_regenerate_id();
+        session_regenerate_id(true);
         $_SESSION["user"] = $this->user;
         $_SESSION["isAuthenticated"] = true;
     }
