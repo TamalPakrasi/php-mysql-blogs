@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Core\Model;
+use App\Exceptions\Database as DbError;
 
 class Users extends Model
 {
@@ -46,5 +47,24 @@ class Users extends Model
       "profile_pic_url" => $profilePicUrl,
       "joined_at" => date("Y-m-d")
     ];
+  }
+
+  public function findById(int $id): bool
+  {
+    $this->sql = "SELECT `id`, `userId`, `first_name`, `last_name`, `email`, `password`, `profile_pic_url`, `joined_at` FROM `users` WHERE `id` = ?";
+
+    parent::prepare();
+
+    $this->stmt->bind_param("i", $id);
+
+    parent::exec();
+
+    $this->stmt->store_result();
+
+    $res = $this->stmt->num_rows > 0;
+
+    parent::close();
+
+    return $res;
   }
 }

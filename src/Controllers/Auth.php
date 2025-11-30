@@ -40,7 +40,7 @@ class Auth extends Controller
         sendResponse(201, "New user registered and logged in successfully");
     }
 
-    // @desc   POST register new user
+    // @desc   POST loggin in existing user
     // @route  POST /api/auth/login
     // @content-type JSON
     // @access Private (guest only)
@@ -54,5 +54,18 @@ class Auth extends Controller
         (new AuthServices(trim($email), trim($password)))->login();
 
         sendResponse(200, "User logged in successfully");
+    }
+
+    // @desc   POST logging out user
+    // @route  POST /api/auth/logout
+    // @access Private (auth user)
+    public function logout(): void
+    {
+        session_unset();
+        session_destroy();
+
+        setcookie("PHPSESSID", "", time() - 3600, BASE_URL . "/");
+
+        sendResponse(200, "User logged out successfully");
     }
 }
