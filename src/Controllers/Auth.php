@@ -37,7 +37,9 @@ class Auth extends Controller
 
         (new AuthServices(trim($email), trim($password), trim($firstName), trim($lastName),  $profilePic))->register();
 
-        sendResponse(201, "New user registered and logged in successfully");
+        $_SESSION["message"] = "New user registered and logged in successfully";
+
+        sendResponse(201, $_SESSION["message"]);
     }
 
     // @desc   POST loggin in existing user
@@ -53,7 +55,9 @@ class Auth extends Controller
 
         (new AuthServices(trim($email), trim($password)))->login();
 
-        sendResponse(200, "User logged in successfully");
+        $_SESSION["message"] = "User logged in successfully";
+
+        sendResponse(200, $_SESSION["message"]);
     }
 
     // @desc   POST logging out user
@@ -66,6 +70,10 @@ class Auth extends Controller
 
         setcookie("PHPSESSID", "", time() - 3600, BASE_URL . "/");
 
-        sendResponse(200, "User logged out successfully");
+        session_start();
+
+        $_SESSION["message"] = "User logged out successfully";
+
+        sendResponse(200, $_SESSION["message"]);
     }
 }

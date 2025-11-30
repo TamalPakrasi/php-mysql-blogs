@@ -1,6 +1,8 @@
 $("#logout").submit(function (e) {
   e.preventDefault();
 
+  const formdata = new FormData(e.target);
+
   const { base } = document.documentElement.dataset;
 
   const loader = `<div class="spinner-border text-light" role="status">
@@ -12,6 +14,9 @@ $("#logout").submit(function (e) {
   $.ajax({
     type: "POST",
     url: `${base}/api/auth/logout`,
+    data: formdata,
+    contentType: false,
+    processData: false,
     success: function (res) {
       location.href = `${base}/`;
     },
